@@ -1,0 +1,9 @@
+Hello developer!
+
+Our client, the Colosseum in Rome has reinstated gladiatorial combat for glory and profits (mostly the latter). They have created a management app for tracking the performance of the gladiators in their stable, but they are missing some key features. Since they are a good customer, and they have a number of battle-seasoned armed men under their command, we have taken on the task even though we don't do consulting.
+They have given us the below short brief summarizing their requests and/or problems.
+"When we are trying to get an overview of our fighters, we can easily find the ones who have won the most fights, but for those who lost the most, we need to scroll all the way to the bottom. Can we do something about that? Can we get a better overview of who is the more successful fighters?
+When a fight has been won, we need to edit the data directly, can you make an interface for it? Similarly, for a loss.
+We also need to do manual editing of the data when a fighter gets killed and needs to be removed. We would like an interface for that.
+We often recruit new fighters, can you make an interface for taking the necessary data and create a new entry in the database?
+Lately we have had some succesful fighters gain titles and their freedom, and we have had to update their names and other info. We would like to be able to edit fighter information in the app."

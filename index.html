@@ -1,0 +1,35 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <style>
+      table {
+        text-align: left;
+      }
+      th {
+        cursor: pointer;
+      }
+      th:nth-child(n+2), td:nth-child(n+2) {
+        padding-left: 16px;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="AppCtrl" ng-cloak>
+    <button ng-click="sortByWinsDesc()">Sort by Wins</button>
+    <input type="text" ng-model="searchText"/>
+    <table>
+      <thead>
+        <th ng-repeat="hdr in hdrs" ng-click="setOrderHdr(hdr)">{{ hdr }}</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in data | filter:searchText | orderBy:getByHdr">
+          <td ng-repeat="hdr in hdrs">{{ row[$index] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Angular libs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
