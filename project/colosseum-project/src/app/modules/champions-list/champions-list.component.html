@@ -1,6 +1,6 @@
 <h2>Colosseum Fighters</h2>
 <div>
-  <table class="table">
+  <table class="fighter-table">
     <tr>
       <th>Name</th>
       <th>Surname</th>
@@ -8,10 +8,12 @@
       <th>Lost</th>
       <th>Date</th>
     </tr>
-    <tr *ngFor="let fighter of fighters">
-      <td>{{item.CategoryID}}</td>
-      <td>{{item.CategoryName}}</td>
-      <td>{{item.Description}}</td>
+    <tr *ngFor="let fighter of fightersList">
+      <td>{{fighter.name}}</td>
+      <td>{{fighter.surname}}</td>
+      <td>{{fighter.wins}}</td>
+      <td>{{fighter.lost}}</td>
+      <td>{{fighter.date}}</td>
     </tr>
   </table>
 </div>

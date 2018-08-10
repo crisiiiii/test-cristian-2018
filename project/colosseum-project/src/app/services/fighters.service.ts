@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { FIGHTERS } from '../mock/fighters';
+import { Fighters } from '../interfaces/fighter.interface';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
-export class ServiceNameService {
-  constructor(private httpClient: HttpClient) { }
+export class FightersService {
+  constructor() { }
 
+  getFighters(): Observable<Fighters[]> {
+    return of(FIGHTERS);
+  }
 }

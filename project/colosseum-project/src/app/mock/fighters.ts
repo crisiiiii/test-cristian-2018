@@ -1,11 +1,4 @@
-interface Fighters {
-  id: number;
-  name: string;
-  surname: string;
-  date: string;
-  wins: number;
-  lost: number;
-}
+import { Fighters } from '../interfaces/fighter.interface';
 
 export const FIGHTERS: Fighters[] = [
   {id: 1, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
