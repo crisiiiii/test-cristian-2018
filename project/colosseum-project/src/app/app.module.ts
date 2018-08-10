@@ -5,6 +5,7 @@ import { FightersService } from './services/fighters.service';
 
 import { AppComponent } from './app.component';
 import { ChampionsListComponent } from './modules/champions-list/champions-list.component';
+import { routing } from './app.routes';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ChampionsListComponent } from './modules/champions-list/champions-list.
   ],
   imports: [
     BrowserModule,
+    routing
   ],
   providers: [FightersService],
   bootstrap: [AppComponent]
