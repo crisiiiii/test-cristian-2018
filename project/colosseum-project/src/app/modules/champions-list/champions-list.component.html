@@ -1,11 +1,12 @@
 <h2>Colosseum Fighters</h2>
 <div>
+  <button (click)="orderFighters('refresh')">Refresh table</button>
   <table class="fighter-table">
     <tr>
       <th>Name</th>
       <th>Surname</th>
-      <th>Wins</th>
-      <th>Lost</th>
+      <th (click)="orderFighters('wins')">Wins</th>
+      <th (click)="orderFighters('lost')">Lost</th>
       <th>Date</th>
     </tr>
     <tr *ngFor="let fighter of fightersList">

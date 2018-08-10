@@ -3,16 +3,16 @@ import { Fighters } from '../interfaces/fighter.interface';
 export const FIGHTERS: Fighters[] = [
   {id: 1, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
   {id: 2, name: 'Arbelas', surname: 'Lucianus Januarius', date: '2016-06-03T22:59:41.518Z', wins: 14, lost: 2},
-  {id: 3, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 4, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 5, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 6, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 7, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 8, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 9, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 10, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 11, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
-  {id: 12, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 32, lost: 11},
+  {id: 3, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 5, lost: 10},
+  {id: 4, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 20, lost: 1},
+  {id: 5, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 2, lost: 1},
+  {id: 6, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 5, lost: 8},
+  {id: 7, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 3, lost: 1},
+  {id: 8, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 7, lost: 10},
+  {id: 9, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 21, lost: 15},
+  {id: 10, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 12, lost: 12},
+  {id: 11, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 13, lost: 11},
+  {id: 12, name: 'Andabata', surname: 'Zosimus Theophilos', date: '2017-08-19T10:05:09.481Z', wins: 25, lost: 13},
 ];
 
  /*
