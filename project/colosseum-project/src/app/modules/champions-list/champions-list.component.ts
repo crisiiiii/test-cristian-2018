@@ -83,7 +83,17 @@ export class ChampionsListComponent implements OnInit {
    * @param fighterId
    */
   saveEdition(fighterId: number) {
-    console.log(this.fighterTableForm.controls.fighterDetails);
+    const fightersForms = this.fighterTableForm.value.fighterDetails;
+    const fighteFound = fightersForms.find((fighter: Fighters) => fighter.id === fighterId );
+    this.fightersAPI.updateFighter(fighteFound).subscribe(
+      (response: Fighters[]) => {
+        this.fightersList = response;
+        this.showAlert('Your update action has been done successfully!');
+      },
+      (error: any) => console.log(error)
+    );
+    console.log(fightersForms);
+    this.cancelEdition(fighterId);
   }
 
   /**
@@ -105,7 +115,7 @@ export class ChampionsListComponent implements OnInit {
     this.fightersAPI.removeFighter(fighterId).subscribe(
       (response: Fighters[]) => {
         this.fightersList = response;
-        this.showAlert('Your removing action has been done successfully!');
+        this.showAlert('Your remove action has been done successfully!');
       },
       (error: any) => console.log(error)
     );

@@ -1,7 +1,7 @@
 <h2>Colosseum Fighters</h2>
 
 <div class="alert alert-success" *ngIf="showSuccessAlert" role="alert">{{alertMessage}}</div>
-<form [formGroup]="fighterTableForm">
+<form [formGroup]="fighterTableForm" (ngSubmit)="onSubmit()">
   <table class="table table-striped" formArrayName="fighterDetails">
     <thead>
       <tr>
@@ -17,20 +17,20 @@
       <tr *ngFor="let fighter of fightersList; let index = index" [formGroupName]="index">
         <td>
           <span *ngIf="!editionMode(fighter.id)">{{fighter.name}}</span>
-          <input [hidden]="true" class="form-control" id="id" [value]="fighter.id">
-          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" id="name" [value]="fighter.name">
+          <input [hidden]="true" class="form-control" formControlName="id" [value]="fighter.id">
+          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" formControlName="name" [value]="fighter.name">
         </td>
         <td>
           <span *ngIf="!editionMode(fighter.id)">{{fighter.surname}}</span>
-          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" id="surname" [value]="fighter.surname">
+          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" formControlName="surname" [value]="fighter.surname">
         </td>
         <td>
           <span *ngIf="!editionMode(fighter.id)">{{fighter.wins}}</span>
-          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" id="wins" [value]="fighter.wins">
+          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" formControlName="wins" [value]="fighter.wins">
         </td>
         <td>
           <span *ngIf="!editionMode(fighter.id)">{{fighter.lost}}</span>
-          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" id="lost" [value]="fighter.lost">
+          <input *ngIf="editionMode(fighter.id)" type="text" class="form-control" formControlName="lost" [value]="fighter.lost">
         </td>
         <td>{{fighter.date}}</td>
         <td>
