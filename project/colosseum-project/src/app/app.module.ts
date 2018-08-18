@@ -6,6 +6,7 @@ import { FightersService } from './services/fighters.service';
 import { AppComponent } from './app.component';
 import { ChampionsListComponent } from './modules/champions-list/champions-list.component';
 import { EditFightersComponent } from './modules/edit-fighters/edit-fighters.component';
+import { AddFightersComponent } from './modules/add-fighters/add-fighters.component';
 import { routing } from './app.routes';
 
 
@@ -13,7 +14,8 @@ import { routing } from './app.routes';
   declarations: [
     AppComponent,
     ChampionsListComponent,
-    EditFightersComponent
+    EditFightersComponent,
+    AddFightersComponent
   ],
   imports: [
     BrowserModule,
