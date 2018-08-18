@@ -42,9 +42,10 @@ export class EditFightersComponent implements OnInit {
    */
   updateDataFighter(fighter: Fighters) {
     this.fightersAPI.updateFighter(fighter).subscribe(
-      () => {},
+      (response: Fighters[]) => {
+        this.showAlert('Your fighter has been updated successfully!');
+      },
       (error: any) => console.log(error),
-      () => this.showAlert('Your fighter has been updated successfully!')
     );
   }
 

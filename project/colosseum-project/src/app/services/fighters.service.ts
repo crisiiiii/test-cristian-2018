@@ -43,15 +43,18 @@ export class FightersService {
    */
   updateFighter(fighter: Fighters): Observable<Fighters[]> {
     const fighterFound = FIGHTERS.find((fighterMock: Fighters) => fighterMock.id === fighter.id );
-    const index = FIGHTERS.indexOf(fighterFound);
-    FIGHTERS[index].name = fighter.name;
-    FIGHTERS[index].surname = fighter.surname;
-    FIGHTERS[index].wins = fighter.wins;
-    FIGHTERS[index].lost = fighter.lost;
-    FIGHTERS[index].date = fighter.date;
-    FIGHTERS[index].titles = (fighter.titles) ? fighter.titles : '';
-    FIGHTERS[index].free = (fighter.free) ? fighter.free : false;
-    return of(FIGHTERS);
+    if (fighterFound) {
+      const index = FIGHTERS.indexOf(fighterFound);
+      FIGHTERS[index].name = fighter.name;
+      FIGHTERS[index].surname = fighter.surname;
+      FIGHTERS[index].wins = fighter.wins;
+      FIGHTERS[index].lost = fighter.lost;
+      FIGHTERS[index].date = fighter.date;
+      FIGHTERS[index].titles = (fighter.titles) ? fighter.titles : '';
+      FIGHTERS[index].free = (fighter.free) ? fighter.free : false;
+      return of(FIGHTERS);
+    }
+    return;
   }
 
   /**

@@ -1,3 +1,6 @@
+<div class="alert alert-warning" role="alert" *ngIf="showAlert">
+  {{alertMessage}}
+</div>
 <form [formGroup]="fighterForm" (submit)="submit()">
   <div class="form-group" [hidden]="true">
     <label>Id</label>
@@ -27,5 +30,5 @@
     <input type="checkbox" class="form-check-input" formControlName="free">
     <label class="form-check-label" for="FreeCheck">*Is the fighter free?</label>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button [disabled]="!selectedFighter && formType === 'update'" type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -15,6 +15,11 @@ export class FighterFormComponent implements OnInit, OnChanges {
   @Input() selectedFighter: Fighters;
 
   /**
+   * Flag to check if its an add or update form
+   */
+  @Input() formType: string;
+
+  /**
    * Data form of fighter
    */
   @Output() dataFighter = new EventEmitter();
@@ -24,6 +29,16 @@ export class FighterFormComponent implements OnInit, OnChanges {
    */
   fighterForm: FormGroup;
 
+  /**
+   * Flag to show alert
+   */
+  showAlert = false;
+
+  /**
+   * Message to show in alert
+   */
+  alertMessage: string;
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -31,7 +46,7 @@ export class FighterFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(change: SimpleChanges) {
-    if (change.selectedFighter.currentValue) {
+    if (change.selectedFighter && change.selectedFighter.currentValue) {
       this.setFighterData();
     }
   }
@@ -41,7 +56,14 @@ export class FighterFormComponent implements OnInit, OnChanges {
    */
   submit() {
     if (!this.fighterForm.valid) {
+      this.showAlert = true;
+      if (!this.fighterForm.controls['wins'].valid || !this.fighterForm.controls['lost'].valid) {
+        this.alertMessage = 'Fields wins and lost must be numbers';
+      } else {
+        this.alertMessage = 'Please, complete all required fields (*)';
+      }
     } else {
+      this.showAlert = false;
       this.dataFighter.emit(this.fighterForm.value);
     }
 
@@ -67,10 +89,10 @@ export class FighterFormComponent implements OnInit, OnChanges {
   private buildForm() {
     this.fighterForm = this.formBuilder.group({
       id: [''],
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      surname: ['', [Validators.required, Validators.minLength(2)]],
-      wins: ['', [Validators.required, Validators.minLength(1)]],
-      lost: ['', [Validators.required, Validators.minLength(1)]],
+      name: ['', [Validators.required]],
+      surname: ['', [Validators.required]],
+      wins: ['', [Validators.required, Validators.minLength(1), Validators.pattern('^[0-9]+$')]],
+      lost: ['', [Validators.required, Validators.minLength(1), Validators.pattern('^[0-9]+$')]],
       date: [this.getDate()],
       titles: ['', []],
       free: ['', [Validators.required]]
