@@ -4,7 +4,6 @@ import { FightersService } from '../../services/fighters.service';
 
 const TYPE_WINS = 'wins';
 const TYPE_LOST = 'lost';
-const TYPE_REFRESH = 'refresh';
 
 @Component({
   selector: 'app-champions-list',
@@ -17,6 +16,8 @@ export class ChampionsListComponent implements OnInit {
    * List of fighters
    */
   fightersList: Fighters[];
+
+  editionModeArray: number[] = [];
 
   constructor(private fightersAPI: FightersService) {
   }
@@ -33,9 +34,52 @@ export class ChampionsListComponent implements OnInit {
       switch (orderType) {
         case TYPE_LOST: return (b.lost - a.lost);
         case TYPE_WINS: return (b.wins - a.wins);
-        case TYPE_REFRESH: return (b.id - b.id);
       }
     });
+  }
+
+  /**
+   * Check if fighters is editing
+   * @param fighterId
+   */
+  editionMode(fighterId: number) {
+    const fighter = this.editionModeArray.find((id: number) => id === fighterId );
+    return (fighter) ? true : false;
+  }
+
+  /**
+   * Add to edition mode
+   * @param fighterId
+   */
+  editFighter(fighterId: number) {
+    this.editionModeArray.push(fighterId);
+  }
+
+  /**
+   * Save the simple edition of the fighter
+   * @param fighterId
+   */
+  saveEdition(fighterId: number) {
+
+  }
+
+  /**
+   * Cancel the edition of the fighter
+   * @param fighterId
+   */
+  cancelEdition(fighterId: number) {
+    const index = this.editionModeArray.indexOf(fighterId, 0);
+    if (index > -1) {
+      this.editionModeArray.splice(index, 1);
+    }
+  }
+
+  /**
+   * Remove fighter from the list
+   * @param fighterId
+   */
+  removeFighter(fighterId: number) {
+
   }
 
   /**
