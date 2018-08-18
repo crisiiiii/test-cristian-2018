@@ -1,1 +1,8 @@
-<h2>EDIT FIGHTERS</h2>
+<h4>Edit Fighters</h4>
+<div class="input-group mb-3">
+  <select class="custom-select" id="inputGroupSelect02" (change)="getDataFighter($event.target.value)">
+    <option selected>Choose a fighter</option>
+    <option *ngFor="let fighter of fightersList" [value]="fighter.id">{{fighter.name + ' ' + fighter.surname}}</option>
+  </select>
+</div>
+<app-fighter-form (dataFighter)="updateDataFighter($event)" [selectedFighter]="selectedFighter"></app-fighter-form>

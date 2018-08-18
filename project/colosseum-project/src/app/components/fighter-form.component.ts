@@ -1,18 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Fighters } from '../interfaces/fighter.interface';
 
 @Component({
   selector: 'app-fighter-form',
   templateUrl: './fighter-form.component.html',
   styleUrls: ['./fighter-form.component.css']
 })
-export class FighterFormComponent implements OnInit {
+export class FighterFormComponent implements OnInit, OnChanges {
 
   /**
-   * Form type could be add or update fighter
+   * Fighter selected
    */
-  @Input() formType: string;
+  @Input() selectedFighter: Fighters;
 
+  /**
+   * Data form of fighter
+   */
   @Output() dataFighter = new EventEmitter();
 
   /**
@@ -24,6 +28,12 @@ export class FighterFormComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
+  }
+
+  ngOnChanges(change: SimpleChanges) {
+    if (change.selectedFighter.currentValue) {
+      this.setFighterData();
+    }
   }
 
   /**
@@ -39,10 +49,25 @@ export class FighterFormComponent implements OnInit {
   }
 
   /**
+   * Set data of the fighter selected in form
+   */
+  private setFighterData() {
+    this.fighterForm.controls['id'].setValue(this.selectedFighter.id);
+    this.fighterForm.controls['name'].setValue(this.selectedFighter.name);
+    this.fighterForm.controls['surname'].setValue(this.selectedFighter.surname);
+    this.fighterForm.controls['wins'].setValue(this.selectedFighter.wins);
+    this.fighterForm.controls['lost'].setValue(this.selectedFighter.lost);
+    this.fighterForm.controls['date'].setValue(this.selectedFighter.date);
+    this.fighterForm.controls['titles'].setValue(this.selectedFighter.titles);
+    this.fighterForm.controls['free'].setValue(this.selectedFighter.free);
+  }
+
+  /**
    * Build the fighter form group
    */
   private buildForm() {
     this.fighterForm = this.formBuilder.group({
+      id: [''],
       name: ['', [Validators.required, Validators.minLength(2)]],
       surname: ['', [Validators.required, Validators.minLength(2)]],
       wins: ['', [Validators.required, Validators.minLength(1)]],
@@ -68,6 +93,6 @@ export class FighterFormComponent implements OnInit {
     if (mm < 10) {
       mm = '0' + mm;
     }
-    return mm + '/' + dd + '/' + yyyy;
+    return mm + '-' + dd + '-' + yyyy;
   }
 }

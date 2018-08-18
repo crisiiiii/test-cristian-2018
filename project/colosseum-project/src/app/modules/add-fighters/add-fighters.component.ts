@@ -9,7 +9,10 @@ import { FightersService } from '../../services/fighters.service';
 })
 export class AddFightersComponent implements OnInit {
 
-  fighterData: any;
+  /**
+   * Fighter data from form component
+   */
+  fighterData: Fighters;
 
   constructor(private fightersAPI: FightersService) {
   }

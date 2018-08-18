@@ -1,4 +1,8 @@
 <form [formGroup]="fighterForm" (submit)="submit()">
+  <div class="form-group" [hidden]="true">
+    <label>Id</label>
+    <input type="text" class="form-control" formControlName="id">
+  </div>
   <div class="form-group">
     <label>Name</label>
     <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
@@ -16,7 +20,7 @@
     <input type="text" class="form-control" formControlName="lost" placeholder="Enter lost">
   </div>
   <div class="form-group">
-    <label>Lost</label>
+    <label>Titles</label>
     <input type="text" class="form-control" formControlName="titles" placeholder="Enter titles">
   </div>
   <div class="form-group form-check">
