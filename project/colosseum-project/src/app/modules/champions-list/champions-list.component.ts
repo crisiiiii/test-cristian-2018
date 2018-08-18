@@ -150,10 +150,11 @@ export class ChampionsListComponent implements OnInit {
       fighterDetails: this.formBuilder.array(
         this.fightersList.map((fighter: Fighters) => this.formBuilder.group({
           id: [fighter.id],
-          name: [fighter.name, [Validators.required, Validators.minLength(2)]],
-          surname: [fighter.surname, [Validators.required, Validators.minLength(2)]],
+          name: [fighter.name, [Validators.required]],
+          surname: [fighter.surname, [Validators.required]],
           wins: [fighter.wins, [Validators.required, Validators.minLength(1)]],
-          lost: [fighter.lost, [Validators.required, Validators.minLength(1)]]
+          lost: [fighter.lost, [Validators.required, Validators.minLength(1)]],
+          date: [fighter.date, []]
         }))
       )
     });

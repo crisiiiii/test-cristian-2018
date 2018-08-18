@@ -95,7 +95,7 @@ export class FighterFormComponent implements OnInit, OnChanges {
       lost: ['', [Validators.required, Validators.minLength(1), Validators.pattern('^[0-9]+$')]],
       date: [this.getDate()],
       titles: ['', []],
-      free: ['', [Validators.required]]
+      free: ['', []]
     });
   }
 
