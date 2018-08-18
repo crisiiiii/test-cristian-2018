@@ -24,6 +24,16 @@ export class ChampionsListComponent implements OnInit {
   fighterTableForm: FormGroup;
 
   /**
+   * Message to show in alert
+   */
+  alertMessage: string;
+
+  /**
+   * Toggle to show/hide alert
+   */
+  showSuccessAlert: boolean;
+
+  /**
    * Save the fighters which are beeing edited
    */
   private editionModeArray: number[] = [];
@@ -92,7 +102,23 @@ export class ChampionsListComponent implements OnInit {
    * @param fighterId
    */
   removeFighter(fighterId: number) {
+    this.fightersAPI.removeFighter(fighterId).subscribe(
+      (response: Fighters[]) => {
+        this.fightersList = response;
+        this.showAlert('Your removing action has been done successfully!');
+      },
+      (error: any) => console.log(error)
+    );
+  }
 
+  /**
+   * Manage the success alert
+   * @param message message to show
+   */
+  private showAlert(message: string) {
+    this.showSuccessAlert = false;
+    this.alertMessage = message;
+    this.showSuccessAlert = true;
   }
 
   /**
