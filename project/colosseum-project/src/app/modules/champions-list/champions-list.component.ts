@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Fighters } from '../../interfaces/fighter.interface';
 import { FightersService } from '../../services/fighters.service';
 
@@ -17,13 +18,25 @@ export class ChampionsListComponent implements OnInit {
    */
   fightersList: Fighters[];
 
-  editionModeArray: number[] = [];
+  /**
+   * Forms of every fighter row
+   */
+  fighterTableForm: FormGroup;
 
-  constructor(private fightersAPI: FightersService) {
+  /**
+   * Save the fighters which are beeing edited
+   */
+  private editionModeArray: number[] = [];
+
+  constructor(private fightersAPI: FightersService, private formBuilder: FormBuilder) {
+    this.fighterTableForm = this.formBuilder.group({
+      fighterDetails: this.formBuilder.array([])
+    });
   }
 
   ngOnInit() {
     this.getAllFighters();
+    this.createFormBuilder();
   }
 
   /**
@@ -60,7 +73,7 @@ export class ChampionsListComponent implements OnInit {
    * @param fighterId
    */
   saveEdition(fighterId: number) {
-
+    console.log(this.fighterTableForm.controls.fighterDetails);
   }
 
   /**
@@ -92,5 +105,22 @@ export class ChampionsListComponent implements OnInit {
       },
       (error: any) => console.log(error)
     );
+  }
+
+  /**
+   * Initialize a FormGroup to every fighter in the list
+   */
+  private createFormBuilder() {
+    this.fighterTableForm = this.formBuilder.group({
+      fighterDetails: this.formBuilder.array(
+        this.fightersList.map((fighter: Fighters) => this.formBuilder.group({
+          id: [fighter.id],
+          name: [fighter.name, [Validators.required, Validators.minLength(2)]],
+          surname: [fighter.surname, [Validators.required, Validators.minLength(2)]],
+          wins: [fighter.wins, [Validators.required, Validators.minLength(1)]],
+          lost: [fighter.lost, [Validators.required, Validators.minLength(1)]]
+        }))
+      )
+    });
   }
 }

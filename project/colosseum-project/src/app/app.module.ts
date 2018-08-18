@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { FightersService } from './services/fighters.service';
@@ -19,6 +20,8 @@ import { routing } from './app.routes';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     routing
   ],
   providers: [FightersService],
