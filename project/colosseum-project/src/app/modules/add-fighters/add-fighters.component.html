@@ -1,2 +1,3 @@
 <h4>Add Fighters</h4>
+<div class="alert alert-success" *ngIf="showSuccessAlert" role="alert">{{alertMessage}}</div>
 <app-fighter-form (dataFighter)="addDataFighter($event)"></app-fighter-form>

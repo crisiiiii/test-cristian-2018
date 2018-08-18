@@ -41,7 +41,6 @@ export class FighterFormComponent implements OnInit, OnChanges {
    */
   submit() {
     if (!this.fighterForm.valid) {
-
     } else {
       this.dataFighter.emit(this.fighterForm.value);
     }

@@ -19,6 +19,16 @@ export class EditFightersComponent implements OnInit {
    */
   fightersList: Fighters[];
 
+  /**
+   * Message to show in alert
+   */
+  alertMessage: string;
+
+  /**
+   * Toggle to show/hide alert
+   */
+  showSuccessAlert: boolean;
+
   constructor(private fightersAPI: FightersService) {
   }
 
@@ -32,10 +42,9 @@ export class EditFightersComponent implements OnInit {
    */
   updateDataFighter(fighter: Fighters) {
     this.fightersAPI.updateFighter(fighter).subscribe(
-      () => {
-        // this.showAlert('Your update action has been done successfully!');
-      },
-      (error: any) => console.log(error)
+      () => {},
+      (error: any) => console.log(error),
+      () => this.showAlert('Your fighter has been updated successfully!')
     );
   }
 
@@ -47,7 +56,6 @@ export class EditFightersComponent implements OnInit {
     this.fightersAPI.getFighter(fighterId).subscribe(
       (fighter: Fighters) => {
         this.selectedFighter = fighter;
-        // this.showAlert('Your update action has been done successfully!');
       },
       (error: any) => console.log(error)
     );
@@ -63,5 +71,15 @@ export class EditFightersComponent implements OnInit {
       },
       (error: any) => console.log(error)
     );
+  }
+
+  /**
+   * Manage the success alert
+   * @param message message to show
+   */
+  private showAlert(message: string) {
+    this.showSuccessAlert = false;
+    this.alertMessage = message;
+    this.showSuccessAlert = true;
   }
 }

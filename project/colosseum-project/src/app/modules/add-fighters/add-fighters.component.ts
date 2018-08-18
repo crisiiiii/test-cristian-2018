@@ -14,6 +14,16 @@ export class AddFightersComponent implements OnInit {
    */
   fighterData: Fighters;
 
+  /**
+   * Message to show in alert
+   */
+  alertMessage: string;
+
+  /**
+   * Toggle to show/hide alert
+   */
+  showSuccessAlert: boolean;
+
   constructor(private fightersAPI: FightersService) {
   }
 
@@ -26,10 +36,21 @@ export class AddFightersComponent implements OnInit {
    */
   addDataFighter(fighter: Fighters) {
     this.fightersAPI.addFighter(fighter).subscribe(
+      () => {},
+      (error: any) => console.log(error),
       () => {
-        // this.showAlert('Your update action has been done successfully!');
-      },
-      (error: any) => console.log(error)
+        this.showAlert('Your fighter has been added successfully!');
+      }
     );
+  }
+
+  /**
+   * Manage the success alert
+   * @param message message to show
+   */
+  private showAlert(message: string) {
+    this.showSuccessAlert = false;
+    this.alertMessage = message;
+    this.showSuccessAlert = true;
   }
 }
