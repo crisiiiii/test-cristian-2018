@@ -1,7 +1,7 @@
 <h2>Colosseum Fighters</h2>
 
 <div class="alert alert-success" *ngIf="showSuccessAlert" role="alert">{{alertMessage}}</div>
-<form [formGroup]="fighterTableForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="fighterTableForm">
   <table class="table table-striped" formArrayName="fighterDetails">
     <thead>
       <tr>

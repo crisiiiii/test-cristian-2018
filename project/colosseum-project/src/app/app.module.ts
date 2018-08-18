@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ChampionsListComponent } from './modules/champions-list/champions-list.component';
 import { EditFightersComponent } from './modules/edit-fighters/edit-fighters.component';
 import { AddFightersComponent } from './modules/add-fighters/add-fighters.component';
+import { FighterFormComponent } from './components/fighter-form.component';
 import { routing } from './app.routes';
 
 
@@ -16,7 +17,8 @@ import { routing } from './app.routes';
     AppComponent,
     ChampionsListComponent,
     EditFightersComponent,
-    AddFightersComponent
+    AddFightersComponent,
+    FighterFormComponent
   ],
   imports: [
     BrowserModule,

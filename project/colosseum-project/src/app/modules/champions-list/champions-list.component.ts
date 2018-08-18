@@ -92,7 +92,6 @@ export class ChampionsListComponent implements OnInit {
       },
       (error: any) => console.log(error)
     );
-    console.log(fightersForms);
     this.cancelEdition(fighterId);
   }
 

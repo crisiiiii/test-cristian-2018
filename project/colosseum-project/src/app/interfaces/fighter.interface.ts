@@ -5,4 +5,6 @@ export interface Fighters {
   date: string;
   wins: number;
   lost: number;
+  titles?: string;
+  free?: boolean;
 }

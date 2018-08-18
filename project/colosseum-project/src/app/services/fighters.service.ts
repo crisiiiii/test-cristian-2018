@@ -15,6 +15,14 @@ export class FightersService {
   }
 
   /**
+   * Add a new fighter on the list
+   */
+  addFighter(fighter: Fighters) {
+    FIGHTERS.push(fighter);
+    return of();
+  }
+
+  /**
    * Update the selected fighter
    * @param fighterId
    */

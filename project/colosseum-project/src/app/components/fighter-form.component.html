@@ -1,0 +1,27 @@
+<form [formGroup]="fighterForm" (submit)="submit()">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" formControlName="name" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label>Surname</label>
+    <input type="text" class="form-control" formControlName="surname" placeholder="Enter surname">
+  </div>
+  <div class="form-group">
+    <label>Wins</label>
+    <input type="text" class="form-control" formControlName="wins" placeholder="Enter wins">
+  </div>
+  <div class="form-group">
+    <label>Lost</label>
+    <input type="text" class="form-control" formControlName="lost" placeholder="Enter lost">
+  </div>
+  <div class="form-group">
+    <label>Lost</label>
+    <input type="text" class="form-control" formControlName="titles" placeholder="Enter titles">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" formControlName="free">
+    <label class="form-check-label" for="FreeCheck">Is the fighter free?</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
